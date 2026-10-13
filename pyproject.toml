@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vkgrab"
+version = "0.1.0"
+description = "Download media referenced by exported VK (VKontakte) archive HTML files"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "aurelvu" }]
+dependencies = [
+    "requests>=2.28",
+    "textual>=0.60",
+]
+
+[project.optional-dependencies]
+video = ["yt-dlp"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+vkgrab = "vkgrab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
